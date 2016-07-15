@@ -14,7 +14,7 @@ if multiprocessing_av:
 
     setup(name='h5writer',
           version='0.1.0',
-          description='Running a worker function in parallel with serial result logging. This package builds on the multiprocessing package and uses the pipe object for IPC.',
+          description='Running any worker function in parallel and producing output in a separate process',
           author='Max F. Hantke',
           author_email='maxhantke@gmail.com',
           url='https://github.com/mhantke/mulpro',

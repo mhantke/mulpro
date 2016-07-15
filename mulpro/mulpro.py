@@ -33,7 +33,7 @@ def _worker_call(worker,pipe):
         raise Exception("".join(traceback.format_exception(*sys.exc_info())))
     
 def mulpro(Nprocesses, worker, getwork, logres=None):
-    multiprocessing.log_to_stderr(logging.DEBUG)
+    multiprocessing.log_to_stderr(logger.getEffectiveLevel())
     pipes_end_host = list(np.zeros(Nprocesses))
     pipes_end_worker = list(np.zeros(Nprocesses))
     processes = list(np.zeros(Nprocesses))
