@@ -1,0 +1,43 @@
+language: python
+
+python:
+  - "2.7"
+
+sudo: false
+
+virtualenv:
+  system_site_packages: true
+
+cache:
+  directories:
+    - $HOME/.cache/pip
+
+
+addons:
+
+  apt:
+
+    sources:
+
+      - ubuntu-toolchain-r-test
+      - kubuntu-backports
+      - couchbase-precise
+
+    packages:
+
+      # Python stuff
+      # (for discovering these packages set in virtualenv: system_site_packages: true)
+      - python-numpy
+      - python-multiprocessing
+
+
+#before_install:
+
+install:
+# Install mulpro
+  - cd $HOME/build/mhantke/mulpro
+  - python setup.py install
+
+script:
+# Test examples
+  - cd $HOME/build/mhantke/mulpro/tests; python test.py
