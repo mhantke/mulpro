@@ -28,7 +28,6 @@ addons:
       # Python stuff
       # (for discovering these packages set in virtualenv: system_site_packages: true)
       - python-numpy
-      - python-multiprocessing
 
 
 #before_install:
