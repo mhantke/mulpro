@@ -13,7 +13,7 @@ if multiprocessing_av:
     from setuptools import setup
 
     setup(name='mulpro',
-          version='0.1.1',
+          version='0.1.2',
           description='Running any worker function in parallel and producing output in a separate process',
           author='Max F. Hantke',
           author_email='maxhantke@gmail.com',
