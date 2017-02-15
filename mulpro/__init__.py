@@ -1,1 +1,1 @@
-from mulpro import mulpro
+from mulpro import mulpro, logger
