@@ -75,7 +75,7 @@ def mulpro(Nprocesses, worker, getwork, logres=None):
         for i in i_processes:
             waiting_counter = 0
             while not processes[i].is_alive():
-                print process, i
+                print processes[i], i
                 time.sleep(5)
                 log_info(logger, "Process %i: Cannot reach process" % (i))
                 waiting_counter += 5
