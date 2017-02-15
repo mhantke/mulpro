@@ -75,10 +75,11 @@ def mulpro(Nprocesses, worker, getwork, logres=None):
         for i in i_processes:
             waiting_counter = 0
             while not processes[i].is_alive():
+                print process, i
                 time.sleep(5)
-                log_debug(logger, "Process %i: Cannot reach process" % (i))
+                log_info(logger, "Process %i: Cannot reach process" % (i))
                 waiting_counter += 5
-                if waiting_counter > 60:
+                if waiting_counter > 600:
                     log_and_raise_error(logger, "Process %i died!" % i)
             job_sent = processes_job_sent[i]
             job_duration = time.time()-processes_job_time[i]
