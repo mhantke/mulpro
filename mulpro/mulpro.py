@@ -77,6 +77,7 @@ def mulpro(Nprocesses, worker, getwork, logres=None):
     N_done = 0
 
     t_start = time.time()
+    last_warning = time.time()
 
     work_packages = list(np.zeros(Nprocesses))
     
@@ -128,7 +129,8 @@ def mulpro(Nprocesses, worker, getwork, logres=None):
                     else:
                         continue
                 else:
-                    if job_duration > WARNING_AFTER_JOB_DURATION_SEC:
+                    if job_duration > WARNING_AFTER_JOB_DURATION_SEC and (time.time() - last_warning) > WARNING_AFTER_JOB_DURATION_SEC:
+                        last_warning = time.time()
                         log_warning(logger, "Process %i has not returned from work call for %s sec" % (i,job_duration))
                         #if job_duration > 100:
                         #    log_warning(logger, "Process %i has not returned from work call for more than 1000 sec. Abort." % (i))
